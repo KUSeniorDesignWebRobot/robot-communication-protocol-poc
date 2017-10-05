@@ -1,0 +1,50 @@
+# command message example
+# unique identifier for this message (unique within the scope of this session)
+message_id: B623211925DC
+message_type: termination
+# unique identifier for the messsage recipient (id for the robot, persistent to the robot)
+robot_id: 10385E45745C
+# unique identifier for the configuration
+configuration_id: 1212FE080B15
+# unique id for this connection session
+session_id: 77AA0D3AE0C7
+
+# message authentication code
+# https://en.wikipedia.org/wiki/Message_authentication_code
+mac: 50BBD3A0F62F8DB362255240
+
+
+# ISO formatted timestamp of when message is issued
+timestamp: 2017-10-04T18:07:24.101908
+
+#termination_type names the type of termination - normal, error or timeout
+#termination_source describes the caller of the termination request
+#termination_info describes in more detail the cause for termination.
+instructions:
+    - termination_type: from error
+    - termination_source: from robot 10385E45745C
+    - termination_info: type 23 error
+
+    or
+
+    - termination_type: from error
+    - termination_source: from host
+    - termination_info: type 22 error
+
+    or
+
+    - termination_type: from timeout
+    - termination_source: from host
+    - termination_info: connection terminated after 10 seconds
+
+    or
+
+    - termination_type: normal
+    - termination_source: from host
+    - termination_info: connection terminated by host
+
+    or
+
+    - termination_type: normal
+    - termination_souce: from robot 10385E45745C
+    - termination_info: connection terminated by robot
