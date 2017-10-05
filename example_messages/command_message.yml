@@ -1,11 +1,9 @@
-# message handlers on both ends should be tolerant of extraneous fields 
-# but intolerant of missing or malformed fields
-
 # command message example
 # unique identifier for this message (unique within the scope of this session)
 message_id: B623211925DC
+message_type: command
 # unique identifier for the messsage recipient (id for the robot, persistent to the robot)
-recipient_id: 10385E45745C
+robot_id: 10385E45745C
 # unique identifier for the configuration
 configuration_id: 1212FE080B15
 # unique id for this connection session
@@ -14,7 +12,6 @@ session_id: 77AA0D3AE0C7
 # message authentication code
 # https://en.wikipedia.org/wiki/Message_authentication_code
 mac: 50BBD3A0F62F8DB362255240
-
 
 # ISO formatted timestamp of when message is issued
 timestamp: 2017-10-04T18:07:24.101908
