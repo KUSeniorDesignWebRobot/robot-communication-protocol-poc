@@ -21,30 +21,31 @@ timestamp: 2017-10-04T18:07:24.101908
 #termination_source describes the caller of the termination request
 #termination_info describes in more detail the cause for termination.
 instructions:
-    - termination_type: from error
-    - termination_source: from robot 10385E45745C
-    - termination_info: type 23 error
+    termination_type: from error
+    termination_source: from robot 10385E45745C
+    termination_info: type 23 error
 
-    or
-
-    - termination_type: from error
-    - termination_source: from host
-    - termination_info: type 22 error
-
-    or
-
-    - termination_type: from timeout
-    - termination_source: from host
-    - termination_info: connection terminated after 10 seconds
-
-    or
-
-    - termination_type: normal
-    - termination_source: from host
-    - termination_info: connection terminated by host
-
-    or
-
-    - termination_type: normal
-    - termination_souce: from robot 10385E45745C
-    - termination_info: connection terminated by robot
+# Other examples of usage
+#      or
+#
+#      termination_type: from error
+#      termination_source: from host
+#      termination_info: type 22 error
+#
+#      or
+#
+#      termination_type: from timeout
+#      termination_source: from host
+#      termination_info: connection terminated after 10 seconds
+#
+#      or
+#
+#      termination_type: normal
+#      termination_source: from host
+#      termination_info: connection terminated by host
+#
+#      or
+#
+#      termination_type: normal
+#      termination_souce: from robot 10385E45745C
+#      termination_info: connection terminated by robot
