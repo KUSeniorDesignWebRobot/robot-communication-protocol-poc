@@ -22,10 +22,16 @@ instructions:
       # essentially the instruction duration.  Instruction is invalid when superceded by more recent
       # instruction or when ttl expires
       ttl: 500
+      # message type determines what happens when there is no valid command for an actuator
+      # static types revert to a default value (often 0)
+      # dynamic types remain at the last command value
+      type: static
       value: 63.45
     - actuator_id: DCCF1DD29613
       ttl: 500
+      type: dynamic
       value: -32.3
     - actuator_id: 88DB7C95F0E2
       ttl: 250
+      type: dynamic
       value: 0.7347
