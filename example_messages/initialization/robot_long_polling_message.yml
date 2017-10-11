@@ -1,0 +1,11 @@
+# this initialization message is sent during the long polling phase via https
+# sending this message indicates that the robot is available for connection
+
+# might go in header?
+mac: 50BBD3A0F62F8DB362255240
+
+timestamp: 2017-10-09T16:20:43.831029
+
+manifest:
+  #this is where a robot manifest would go, see manifest.yml
+

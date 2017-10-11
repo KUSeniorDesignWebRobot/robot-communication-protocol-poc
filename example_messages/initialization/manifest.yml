@@ -1,0 +1,70 @@
+# an example of the robot manifest to be sent to server side
+
+robot_id: AE6893B6FA78
+
+description: |
+  Spy robot!  It's got a camera and wheels
+  For helping out Big Brother
+
+actuators:
+  - actuator_id: DCCF1DD29613
+    # does value remain at last instruction value or revert to a default?
+    type: static
+    # the default value [OPTIONAL], only needed for static type actuators
+    default: 0
+    # documentation / description for user consumption
+    description: Right wheel motor
+    range:
+      gte: -100
+      lte: 100
+      # does this accept float values or integer values?
+      quantization: float
+  - actuator_id: 88DB7C95F0E2
+    type: static
+    default: 0
+    description: Left wheel motor
+    range:
+      gte: -100
+      lte: 100
+      quantization: float
+  - actuator_id: 6CA76E92960A
+    type: dynamic
+    description: Led 1
+    range:
+      # this range includes values {0, 1}
+      gte: 0
+      lte: 1
+      quantization: integer
+  - actuator_id: 739B9AFCD438
+    type: dynamic
+    description: |
+      Primary camera pivot
+      Values indicate absolute position in degrees from forward position
+    range:
+      # this range includes values [0, 360)
+      gte: 0
+      lt: 360
+      quantization: float
+
+# a "sensor" does not have to be a physical sensor, 
+# anything that gives feedback and can be registered like this is fair game
+sensors:
+  - sensor_id: D9A84DFFA7CF
+    # details of video and/or image sensor configuration and management tbd
+    description: |
+      Camera on pivot
+      Resolution of 640x480 px
+    # datatype of the sensor's values
+    # supported types tbd, but some examples might be integer, boolean, float, string, camera_video, camera_still
+    # some more complex types (like camera_video) require special handling
+    # special handling of sensor types could be a powerful tool to allow for easy extention of this spec,
+    # such as pseudo-sensors that give meta information about the robot
+    type: camera_video
+  - sensor_id: B0E2A6D4A688
+    description: |
+      Positional sensor for camera pivot
+      Measured in degrees from forward position
+    type: float
+    range:
+      gte: 0
+      lt: 360
