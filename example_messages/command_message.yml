@@ -1,20 +1,16 @@
 # command message example
-# unique identifier for this message (unique within the scope of this session)
+# unique identifier for this message (unique within the scope of this session) (actuallly in UUID format)
 message_id: B623211925DC
 message_type: command
 # unique identifier for the messsage recipient (id for the robot, persistent to the robot)
 robot_id: 10385E45745C
 # unique identifier for the configuration
 configuration_id: 1212FE080B15
-# unique id for this connection session
+# unique id for this connection session (actuallly in UUID format)
 session_id: 77AA0D3AE0C7
 
-# message authentication code
-# https://en.wikipedia.org/wiki/Message_authentication_code
-mac: 50BBD3A0F62F8DB362255240
-
-# ISO formatted timestamp of when message is issued
-timestamp: 2017-10-04T18:07:24.101908
+# UNIX timestamp of when message is issued
+timestamp: 1516397313.972912
 
 instructions:
     - actuator_id: 6CA76E92960A
@@ -27,6 +23,8 @@ instructions:
       # dynamic types remain at the last command value
       type: static
       value: 63.45
+      # optional speed value
+      speed: 150
     - actuator_id: DCCF1DD29613
       ttl: 500
       type: dynamic
