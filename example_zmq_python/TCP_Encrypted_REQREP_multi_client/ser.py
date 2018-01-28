@@ -9,6 +9,7 @@
 ##
 ##   Author: Daniel Lundin <dln(at)eintr(dot)org>
 ##
+
 from __future__ import print_function
 
 from random import randint
@@ -39,13 +40,57 @@ server.curve_server = False
 server.bind("tcp://*:5555")
 
 cycles = 0
+
+# EXAMPLE COMMAND MESSAGE:
+cM = {
+      "message_id": "067c8c59-710a-4c15-8265-b7f1e49b828c",
+      "message_type": "command",
+      "robot_id": "067c8c59-710a-4c15-8265-b7f1e49b828c",
+      "timestamp": 1509748526.3482552,
+      "configuration_id": "067c8c59-710a-4c15-8265-b7f1e49b828c",
+      "session_id": "067c8c59-710a-4c15-8265-b7f1e49b828c",
+      "instructions": [
+        {
+          "value": 0.10666666666666667,
+          "actuator_id": "067c8c59-710a-4c15-8265-b7f1e49b828c",
+          "ttl": 1.412,
+          "type": "static"
+        },
+        {
+          "value": 0.10666666666666667,
+          "actuator_id": "067c8c59-710a-4c15-8265-b7f1e49b828c",
+          "ttl": 1.412,
+          "type": "static"
+        },
+        {
+          "value": 0.10666666666666667,
+          "actuator_id": "067c8c59-710a-4c15-8265-b7f1e49b828c",
+          "ttl": 1.412,
+          "type": "static"
+        }
+      ]
+    }
+
+#Example AcknowledgementMessage
+aM = {
+      "message_id": "067c8c59-710a-4c15-8265-b7f1e49b828c",
+      "message_type": "acknowledgement",
+      "timestamp": 1509748526.3482552
+}
+
+
 while True:
     try:
-        request = server.recv()
+        request = server.recv_json()
         cycles += 1
-
+        message_type = request["message_type"]
         print("I: Normal request (%s)" % request)
-        server.send(request)
+        if(message_type == "acknowledgement"):
+            server.send_json(cM)
+            print("sending command")
+        elif(message_type == "acknowledgement"):
+            server.send_json(cM)
+            print("sending acknowledgement")
 
     except KeyboardInterrupt:
         print("END")
