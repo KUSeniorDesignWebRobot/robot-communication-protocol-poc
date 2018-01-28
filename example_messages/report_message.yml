@@ -4,17 +4,11 @@ message_id: AE6893B6FA78
 message_type: report
 # unique identifier for the messsage recipient (id for the robot, persistent to the robot)
 robot_id: 10385E45745C
-# unique identifier for the configuration
-configuration_id: 1212FE080B15
 # unique id for this connection session
 session_id: 77AA0D3AE0C7
 
-# message authentication code
-# https://en.wikipedia.org/wiki/Message_authentication_code
-mac: 0809EF57AC55D54EBE0F0A99
-
-# ISO formatted timestamp of when message is issued
-timestamp: 2017-10-04T18:07:26.375194
+# UNIX timestamp of when message is issued
+timestamp: 1516397313.972912
 
 reports:
     - sensor_id: D9A84DFFA7CF
@@ -23,6 +17,8 @@ reports:
       # by more recent report or when ttl expires
       ttl: 1000
       value: 0.1200030
+      # source attribute: gives more information about what type of sensor gave this data
+      source: "proprioception"
     - sensor_id: B0E2A6D4A688
       ttl: 2000
       value: 3.14159
